@@ -18,4 +18,5 @@ def run():
     except KeyboardInterrupt:
         print "Exiting on Ctrl-C."
 
-run()
+if __name__=="__main__":
+    run()
