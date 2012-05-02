@@ -10,7 +10,15 @@ class ThreadingHTTPServer(SocketServer.ThreadingMixIn, BaseHTTPServer.HTTPServer
     pass
 
 def run():
-    server_address = ('', 8080)
+    parser = argparse.ArgumentParser(prog="simplehttp")
+    parser.add_argument('-i', '--interface', type=str, default="",
+        help='Interface to connect to, defaults to all.')
+    parser.add_argument('-p', '--port', type=int, default = 8080,
+        help='Port to run on.')
+
+    args = parser.parse_args(sys.argv[1:])
+
+    server_address = (args.interface, args.port)
     httpd = ThreadingHTTPServer(server_address, SimpleHTTPRequestHandler)
     print "Running on %s:%s" % server_address
     try:
