@@ -10,6 +10,7 @@ Sometimes I want a simple http server that doesn't require a lot of
 configuration and just serves files out of the current directory.
 
 I used to use Python's SimpleHTTPServer directly:
+
     python -m SimpleHTTPServer 8080
 
 However, I found that I was out growing that.  Some pages I work on
