@@ -13,7 +13,7 @@ def run():
 
     parser = argparse.ArgumentParser(prog="simplehttp")
     parser.add_argument('-i', '--interface', type=str, default="",
-        help='Interface to connect to, defaults to all.')
+        help='Interface to listen on, defaults to all.')
     parser.add_argument('-p', '--port', type=int, default = 8080,
         help='Port to run on.')
     parser.add_argument('-r', '--root', type=str, default="./",
