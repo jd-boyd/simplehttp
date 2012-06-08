@@ -1,3 +1,4 @@
+
 simplehttp
 ==========
 
@@ -22,17 +23,18 @@ This is a threaded server.  One thread per request, so it isn't the
 most efficient of threaded servers, but it is certainly adequate for
 development.
 
-This server doesn't implement CGI, WSGI, SSL, or other such features.  It 
+This server doesn't implement CGI, WSGI, SSL, or other such features.  It
 just serves plain content.
 
 Usage:
 ======
 
     usage: simplehttp [-h] [-i INTERFACE] [-p PORT] [-r ROOT]
-    
+
     optional arguments:
       -h, --help            show this help message and exit
       -i INTERFACE, --interface INTERFACE
                             Interface to listen on, defaults to all.
       -p PORT, --port PORT  Port to run on.
+      --pidfile PIDFILE     Write the PID to a file.
       -r ROOT, --root ROOT  Document root. Defaults to current directory.
