@@ -1,10 +1,18 @@
 #!/usr/bin/env python
+from __future__ import print_function, unicode_literals
 
-import SocketServer
-import BaseHTTPServer
-from SimpleHTTPServer import SimpleHTTPRequestHandler
+import argparse
+import os
+import sys
 
-import argparse, sys, os
+if sys.version < '3':
+    import SocketServer
+    import BaseHTTPServer
+    from SimpleHTTPServer import SimpleHTTPRequestHandler
+else:
+    import socketserver as SocketServer
+    from http import server as BaseHTTPServer
+    from http.server import SimpleHTTPRequestHandler
 
 class ThreadingHTTPServer(SocketServer.ThreadingMixIn, BaseHTTPServer.HTTPServer):
     pass
@@ -24,11 +32,11 @@ def run():
     os.chdir(args.root)
     server_address = (args.interface, args.port)
     httpd = ThreadingHTTPServer(server_address, SimpleHTTPRequestHandler)
-    print "Running on %s:%s" % server_address
+    print("Running on %s:%s" % server_address)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print "Exiting on Ctrl-C."
+        print("Exiting on Ctrl-C.")
 
 if __name__=="__main__":
     run()
