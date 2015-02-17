@@ -39,11 +39,11 @@ def run():
     os.chdir(args.root)
     server_address = (args.interface, args.port)
     httpd = ThreadingHTTPServer(server_address, SimpleHTTPRequestHandler)
-    print "Running on %s:%s" % server_address
+    print("Running on %s:%s" % server_address)
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:
-        print "Exiting on Ctrl-C."
+        print("Exiting on Ctrl-C.")
         if args.pidfile != "/dev/null" and os.path.exists(args.pidfile):
             os.remove(args.pidfile)
 
